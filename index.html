@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Quantum Toast Teleporter 🍞⚛️</title>
+  <meta name="description" content="A quantum physics laboratory testing Murphy's Law: butter slices of toast, attach Schrödinger cats, engage anti-gravity fields, and open parallel dimension wormholes to achieve 100% butter-side-up teleportation.">
+
+  <!-- Custom inline SVG Favicon: Quantum Golden Toast with Atomic Orbit Rings -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2310131e'/%3E%3Cstop offset='100%25' stop-color='%23050810'/%3E%3C/linearGradient%3E%3ClinearGradient id='t' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23e09848'/%3E%3Cstop offset='100%25' stop-color='%239e5b1e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='12' fill='none' stroke='%2338bdf8' stroke-width='1.8' stroke-dasharray='4,2' transform='rotate(-25 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='12' fill='none' stroke='%23f472b6' stroke-width='1.8' stroke-dasharray='4,2' transform='rotate(35 32 32)'/%3E%3Cpath d='M22 18 C22 13 28 12 32 12 C36 12 42 13 42 18 C45 20 45 24 44 26 L43 46 C43 49 40 51 32 51 C24 51 21 49 21 46 L20 26 C19 24 19 20 22 18 Z' fill='url(%23t)' stroke='%235c3410' stroke-width='1.5'/%3E%3Crect x='26' y='22' width='12' height='10' rx='2' fill='%23facc15' stroke='%23eab308' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='2' fill='%2338bdf8'/%3E%3Ccircle cx='18' cy='22' r='1.5' fill='%23f472b6'/%3E%3Ccircle cx='46' cy='42' r='1.5' fill='%23facc15'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div id="lab-app">
+    <!-- Background FX Canvas (Cherenkov radiation, quantum field grid, warp streams) -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Top Scientific HUD Header -->
+    <header class="lab-header">
+      <div class="header-branding">
+        <div class="reactor-core-status pulse-glow">
+          <span class="core-icon">⚛️</span>
+        </div>
+        <div class="facility-meta">
+          <h1 class="facility-title">CERN-TOASTRON 9000</h1>
+          <span class="facility-subtitle">HIGH-ENERGY BREAKFAST ACCELERATOR & MURPHY NULLIFIER</span>
+        </div>
+      </div>
+
+      <!-- Quick Telemetry Badges -->
+      <div class="header-readouts">
+        <div class="readout-card" title="Predicted Quantum Teleportation / Upright Landing Chance">
+          <span class="readout-label">SUCCESS PROBABILITY</span>
+          <span id="stat-probability" class="readout-val text-cyan">1.2%</span>
+        </div>
+        <div class="readout-card" title="Current Local Murphy Law Intensity">
+          <span class="readout-label">MURPHY ENTROPY</span>
+          <span id="stat-entropy" class="readout-val text-amber">9.81 μM</span>
+        </div>
+        <div class="readout-card" title="Paradox Resonance Index">
+          <span class="readout-label">PARADOX FACTOR</span>
+          <span id="stat-paradox" class="readout-val text-magenta">0.00x</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="header-actions">
+        <button id="btn-sound" class="action-btn" title="Toggle Procedural Audio Synthesizer (Key: M)">
+          🔊 <span id="sound-label">Audio ON</span>
+        </button>
+        <button id="btn-manual" class="action-btn" title="Open Lab Safety Manual & Paradox Protocols">
+          📋 <span>Lab Manual</span>
+        </button>
+        <button id="btn-scram" class="action-btn action-scram" title="EMERGENCY SCRAM: Evacuate Quantum Chamber">
+          🚨 <span>SCRAM</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Experiment Facility Layout -->
+    <main class="lab-main">
+      <!-- The Vacuum Drop Chamber Viewport -->
+      <section class="chamber-container" id="chamber-container">
+        <!-- Overhead Laser Emitter / Crane Rail -->
+        <div class="chamber-crane">
+          <div class="crane-rail"></div>
+          <div class="crane-carriage" id="crane-carriage">
+            <div class="crane-clamp clamp-left" id="clamp-left"></div>
+            <div class="crane-emitter">
+              <span class="emitter-glow"></span>
+            </div>
+            <div class="crane-clamp clamp-right" id="clamp-right"></div>
+          </div>
+        </div>
+
+        <!-- Containment Field Generators (Left and Right Rails) -->
+        <div class="containment-rails">
+          <div class="field-coil coil-left">
+            <span class="coil-node"></span>
+            <span class="coil-node"></span>
+            <span class="coil-node"></span>
+            <span class="coil-node"></span>
+          </div>
+          <div class="field-coil coil-right">
+            <span class="coil-node"></span>
+            <span class="coil-node"></span>
+            <span class="coil-node"></span>
+            <span class="coil-node"></span>
+          </div>
+        </div>
+
+        <!-- Dynamic Quantum Particle & Physics Canvas -->
+        <canvas id="chamber-canvas"></canvas>
+
+        <!-- Floor Portal & Breakfast Landing Plate -->
+        <div class="chamber-floor">
+          <!-- Left Portal Alpha -->
+          <div class="portal-unit portal-alpha" id="portal-alpha">
+            <div class="portal-ring">
+              <div class="portal-vortex"></div>
+              <div class="portal-label">PORTAL α (INPUT)</div>
+            </div>
+          </div>
+
+          <!-- Target Silver Breakfast Tray (Ground Zero) -->
+          <div class="target-platter" id="target-platter">
+            <div class="platter-rim">
+              <div class="platter-plate">
+                <div class="crosshair-target"></div>
+                <div class="plate-label">LANDING ZONE (BUTTER-UP REQUIRED)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Portal Beta (Output Egress) -->
+          <div class="portal-unit portal-beta" id="portal-beta">
+            <div class="portal-ring">
+              <div class="portal-vortex"></div>
+              <div class="portal-label">PORTAL β (TELEPORT)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Result Announcement Banner -->
+        <div id="result-banner" class="result-banner hidden">
+          <div class="banner-icon" id="banner-icon">🍞</div>
+          <div class="banner-text">
+            <h2 id="banner-title">TEST IN PROGRESS</h2>
+            <p id="banner-desc">Quantum state collapsing under observation...</p>
+          </div>
+          <button id="banner-dismiss-btn" class="banner-btn">Re-chamber Toast [R]</button>
+        </div>
+      </section>
+
+      <!-- Bottom Lab Control Desk & Modular Switchboard -->
+      <section class="control-deck">
+        <!-- Switchboard Panels -->
+        <div class="deck-modules">
+
+          <!-- Module 1: Butter Density Synthesizer -->
+          <div class="control-module" id="mod-butter">
+            <div class="module-header">
+              <span class="mod-num">MOD-01</span>
+              <span class="mod-title">🧈 BUTTER MATRIX</span>
+            </div>
+            <p class="mod-desc">Increases surface mass asymmetry and attracts carpet fibers via Murphy's 1st Law.</p>
+            <div class="module-buttons">
+              <button class="toggle-btn active" data-butter="none">Dry Toast</button>
+              <button class="toggle-btn" data-butter="standard">Single Pat (Top)</button>
+              <button class="toggle-btn" data-butter="double">Double-Glazed (Paradox)</button>
+            </div>
+          </div>
+
+          <!-- Module 2: Feline Anti-Murphy Harness -->
+          <div class="control-module" id="mod-cat">
+            <div class="module-header">
+              <span class="mod-num">MOD-02</span>
+              <span class="mod-title">🐱 SCHRÖDINGER FELINE</span>
+            </div>
+            <p class="mod-desc">Straps a high-frequency cat to toast. Cat always lands on feet; butter lands down. Result: infinite spin.</p>
+            <div class="module-buttons">
+              <button class="toggle-btn active" data-cat="off">No Cat (Boring)</button>
+              <button class="toggle-btn" data-cat="ginger">Ginger Tabby 🐾</button>
+              <button class="toggle-btn" data-cat="cyber">Cyber-Kitten 9000 ⚡</button>
+            </div>
+          </div>
+
+          <!-- Module 3: Anti-Gravity Field Inverter -->
+          <div class="control-module" id="mod-antigrav">
+            <div class="module-header">
+              <span class="mod-num">MOD-03</span>
+              <span class="mod-title">🛸 GRAVITON INVERTER</span>
+            </div>
+            <p class="mod-desc">Pumps Cherenkov anti-matter into the drop bay to cancel Newtonian gravitational pull.</p>
+            <div class="module-buttons">
+              <button class="toggle-btn active" data-antigrav="off">Standard 1.0G</button>
+              <button class="toggle-btn" data-antigrav="low">Lunar 0.16G</button>
+              <button class="toggle-btn" data-antigrav="repulsion">Repulsive -0.5G</button>
+            </div>
+          </div>
+
+          <!-- Module 4: Einstein-Rosen Wormhole Conduit -->
+          <div class="control-module" id="mod-portal">
+            <div class="module-header">
+              <span class="mod-num">MOD-04</span>
+              <span class="mod-title">🌀 DIMENSIONAL PORTALS</span>
+            </div>
+            <p class="mod-desc">Opens twin spacetime fissures. Swallows falling toast and re-orients it 180° butter-side UP!</p>
+            <div class="module-buttons">
+              <button class="toggle-btn active" data-portal="off">Offline</button>
+              <button class="toggle-btn" data-portal="wormhole">Stable Wormhole α/β</button>
+              <button class="toggle-btn" data-portal="singularity">Quantum Singularity</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Master Trigger Bay -->
+        <div class="deck-trigger-bay">
+          <!-- Telemetry Terminal Stream -->
+          <div class="telemetry-terminal">
+            <div class="terminal-bar">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+              <span class="term-title">DIAGNOSTIC LOG — CERN-TOASTRON OS v4.20</span>
+            </div>
+            <div class="terminal-body" id="term-log">
+              <div class="log-line text-dim">[SYSTEM] Cryogenic containment coils stabilized at 1.4 Kelvin.</div>
+              <div class="log-line text-cyan">[READY] Sourdough brioche chambered in vacuum drop clamp.</div>
+              <div class="log-line text-amber">[WARNING] Murphy constant is dangerously potent today. Configure defensive modules before dropping.</div>
+            </div>
+          </div>
+
+          <!-- Massive Physical Trigger Panel -->
+          <div class="trigger-panel">
+            <button id="btn-drop" class="master-trigger-btn" title="Initiate Drop / Teleportation Test (Key: Spacebar)">
+              <div class="trigger-halo"></div>
+              <span class="trigger-icon">🚀</span>
+              <span class="trigger-text">INITIATE DROP TEST</span>
+              <span class="trigger-sub">OR HIT SPACEBAR</span>
+            </button>
+            <div class="trigger-subcontrols">
+              <button id="btn-rechamber" class="sub-btn" title="Reload a fresh slice of toast into clamp (Key: R)">
+                🔄 <span>Re-chamber Toast [R]</span>
+              </button>
+              <button id="btn-auto-solve" class="sub-btn sub-accent" title="Auto-calibrate all modules for guaranteed 100% quantum triumph">
+                ✨ <span>Auto-Solve Paradox</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lab Safety Manual Modal (Easter Egg & Educational Lore) -->
+    <div id="modal-manual" class="lab-modal hidden">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="modal-badge">TOP SECRET / CERN-BRUNCH</span>
+            <h2>LAB MANUAL: THE BUTTERED-CAT PARADOX PROTOCOL</h2>
+          </div>
+          <button id="btn-close-modal" class="modal-close-btn" title="Close manual">&times;</button>
+        </div>
+        <div class="modal-body">
+          <section class="manual-section">
+            <h3>1. The Fundamental Law of Breakfast Dynamics</h3>
+            <p><strong>Murphy's First Toast Corollary:</strong> <em>"The probability of a slice of toast landing buttered-side down on an expensive carpet is directly proportional to the price of the rug."</em> In an unshielded Newtonian drop, the butter adds an aerodynamic drag offset and shifts the center of mass by 0.3mm, creating an unavoidable half-rotation before touchdown.</p>
+          </section>
+
+          <section class="manual-section">
+            <h3>2. The Feline Angular Momentum Phenomenon</h3>
+            <p><strong>The Cat Righting Axiom:</strong> Free-falling cats always rotate their spine to land on four paws with 100.00% precision. When a slice of toast is buttered and securely fastened to the back of a cat (butter facing away from feline spine), two contradictory physical laws are enforced simultaneously.</p>
+            <div class="formula-box">
+              <code>Lim (t → ∞) [Torque_Cat + Torque_Toast] = 0.000 Nm</code>
+              <div class="formula-caption">→ Result: The system enters perpetual zero-G rotational levitation.</div>
+            </div>
+          </section>
+
+          <section class="manual-section">
+            <h3>3. How to Achieve 100% Upright Teleportation</h3>
+            <ul>
+              <li><strong>Dry Toast:</strong> 50% random chance of landing up or down.</li>
+              <li><strong>Buttered Toast (alone):</strong> 99.8% chance of catastrophic butter-down failure.</li>
+              <li><strong>Buttered Toast + Cat:</strong> Hovering infinite spin paradox!</li>
+              <li><strong>Buttered Toast + Portal + Graviton Inverter:</strong> Wormhole absorbs the upside-down vector and materializes toast gently on the silver platter, buttered-side UP!</li>
+            </ul>
+          </section>
+        </div>
+        <div class="modal-footer">
+          <span class="easter-hint">💡 Hotkeys: [Space] Drop, [R] Re-chamber, [M] Mute, [B] Slap Butter, [C] Toggle Cat</span>
+          <button id="btn-manual-ack" class="modal-ack-btn">Understood, For Science!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Black Hole Scram Overlay (Easter Egg) -->
+    <div id="scram-overlay" class="scram-overlay hidden">
+      <div class="scram-vortex"></div>
+      <div class="scram-content">
+        <div class="scram-siren">🚨 EVENT HORIZON BREACH 🚨</div>
+        <div class="scram-msg">Emergency SCRAM pulled! A miniature breakfast singularity is consuming the collider!</div>
+        <div class="scram-toast-swarm" id="scram-toast-swarm"></div>
+        <button id="btn-scram-reset" class="scram-reset-btn">Reset Vacuum Chamber & Cool Magnets</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+<script>window.__BORED_AI_SLUG__="quantum-toast-teleporter";</script>
+<script src="report-widget.js"></script>
+</body>
+</html>
